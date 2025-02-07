@@ -1,4 +1,4 @@
 {
-  "version": "2.1.0",
-  "news": "Bug fixes and performance improvements."
+  "version": "1.0.0",
+  "news": "No problems."
 }
