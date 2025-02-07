@@ -1,0 +1,1 @@
+{"version":"2.0.4","news":"Fixed problem with TextUI without using TextUI, Removed camera rotation from Config.Zones"}
