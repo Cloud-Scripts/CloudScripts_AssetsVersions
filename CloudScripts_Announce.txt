@@ -1,4 +1,4 @@
 {
-  "version": "1.0.1",
-  "news": "No problems."
+  "version": "1.0.2",
+  "news": "Problems with TxAdmin are solved."
 }
