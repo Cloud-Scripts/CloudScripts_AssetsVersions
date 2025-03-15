@@ -1,9 +1,9 @@
 name: Discord Webhook Notification
 
 on: 
-  push:  # Startet das Workflow bei jedem Push
+  push:
     branches:
-      - main  # Falls dein Hauptbranch anders heißt, ändere "main"
+      - main
 
 jobs:
   notify:
@@ -16,5 +16,33 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d '{"content": "**📢 Neues Update!**\n🔗 Repository: `'"${{ github.repository }}"'`\n🔄 Branch: `'"${{ github.ref }}"'`\n✍️ Commit von: `'"${{ github.actor }}"'`\n📝 Nachricht: `'"${{ github.event.head_commit.message }}"'`\}}"')"}' \
+          -d '{
+            "embeds": [
+              {
+                "title": "📢 Neues Update!",
+                "color": 16776960, 
+                "fields": [
+                  {
+                    "name": "📂 Repository",
+                    "value": "${{ github.repository }}",
+                    "inline": true
+                  },
+                  {
+                    "name": "🔄 Branch",
+                    "value": "${{ github.ref }}",
+                    "inline": true
+                  },
+                  {
+                    "name": "✍️ Commit von",
+                    "value": "${{ github.actor }}",
+                    "inline": true
+                  },
+                  {
+                    "name": "📝 Nachricht",
+                    "value": "${{ github.event.head_commit.message }}"
+                  }
+                ]
+              }
+            ]
+          }' \
           $DISCORD_WEBHOOK
