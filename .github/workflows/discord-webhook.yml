@@ -1,0 +1,20 @@
+name: Discord Webhook Notification
+
+on: 
+  push:  # Startet das Workflow bei jedem Push
+    branches:
+      - main  # Falls dein Hauptbranch anders heißt, ändere "main"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send notification to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{"content": "**📢 Neues Update!**\n🔗 Repository: `'"${{ github.repository }}"'`\n🔄 Branch: `'"${{ github.ref }}"'`\n✍️ Commit von: `'"${{ github.actor }}"'`\n📝 Nachricht: `'"${{ github.event.head_commit.message }}"'`\n🔗 [Änderungen ansehen]('"${{ github.event.head_commit.url }}"')"}' \
+          $DISCORD_WEBHOOK
