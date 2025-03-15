@@ -19,27 +19,28 @@ jobs:
           -d '{
             "embeds": [
               {
-                "title": "📢 Neues Update!",
+                "title": "📢 New Update!",
                 "color": 16776960, 
                 "fields": [
                   {
                     "name": "📂 Repository",
                     "value": "${{ github.repository }}",
-                    "inline": true
+                    "inline": false
                   },
                   {
                     "name": "🔄 Branch",
                     "value": "${{ github.ref }}",
-                    "inline": true
+                    "inline": false
                   },
                   {
-                    "name": "✍️ Commit von",
+                    "name": "✍️ Commit by",
                     "value": "${{ github.actor }}",
-                    "inline": true
+                    "inline": false
                   },
                   {
-                    "name": "📝 Nachricht",
-                    "value": "${{ github.event.head_commit.message }}"
+                    "name": "📝 Commit Message",
+                    "value": "${{ github.event.head_commit.message }}",
+                    "inline": false
                   }
                 ]
               }
