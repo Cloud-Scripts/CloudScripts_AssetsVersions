@@ -1,9 +1,9 @@
 name: Discord Webhook Notification
 
 on: 
-  push:
+  push:  # Startet das Workflow bei jedem Push
     branches:
-      - main
+      - main  # Falls dein Hauptbranch anders heißt, ändere "main"
 
 jobs:
   notify:
