@@ -1,16 +1,32 @@
 name: Discord Webhook Notification
 
 on: 
-  push:  # Startet das Workflow bei jedem Push
+  push:
     branches:
-      - main  # Falls dein Hauptbranch anders heißt, ändere "main"
+      - main
 
 jobs:
   notify:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check for new or updated files
+        id: check_changes
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          echo "Changed files: $CHANGED_FILES"
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "NO_CHANGES=true" >> $GITHUB_ENV
+          else
+            echo "NO_CHANGES=false" >> $GITHUB_ENV
+          fi
+
       - name: Send notification to Discord
+        if: env.NO_CHANGES == 'false'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
