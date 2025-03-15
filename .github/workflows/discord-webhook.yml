@@ -16,5 +16,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d '{"content": "**📢 Neues Update!**\n🔗 Repository: `'"${{ github.repository }}"'`\n🔄 Branch: `'"${{ github.ref }}"'`\n✍️ Commit von: `'"${{ github.actor }}"'`\n📝 Nachricht: `'"${{ github.event.head_commit.message }}"'`\n🔗 [Änderungen ansehen]('"${{ github.event.head_commit.url }}"')"}' \
+          -d '{"content": "**📢 Neues Update!**\n🔗 Repository: `'"${{ github.repository }}"'`\n🔄 Branch: `'"${{ github.ref }}"'`\n✍️ Commit von: `'"${{ github.actor }}"'`\n📝 Nachricht: `'"${{ github.event.head_commit.message }}"'`\}}"')"}' \
           $DISCORD_WEBHOOK
