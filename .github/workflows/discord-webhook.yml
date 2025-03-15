@@ -13,24 +13,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Check for new or updated files
-        id: check_changes
-        run: |
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          echo "Changed files: $CHANGED_FILES"
-          
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "NO_CHANGES=true" >> $GITHUB_ENV
-          else
-            echo "NO_CHANGES=false" >> $GITHUB_ENV
-          fi
+      - name: Get changed files
+        id: changed_files
+        uses: tj-actions/changed-files@v41
 
       - name: Send notification to Discord
-        if: env.NO_CHANGES == 'false'
+        if: steps.changed_files.outputs.any_changed == 'true'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          CHANGED_FILES="${{ steps.changed_files.outputs.all_changed_files }}"
           curl -H "Content-Type: application/json" \
           -X POST \
-          -d '{"content": "**📢 Neues Update!**\n🔗 Repository: `'"${{ github.repository }}"'`\n🔄 Branch: `'"${{ github.ref }}"'`\n✍️ Commit von: `'"${{ github.actor }}"'`\n📝 Nachricht: `'"${{ github.event.head_commit.message }}"'`\n🔗 [Änderungen ansehen]('"${{ github.event.head_commit.url }}"')"}' \
+          -d '{"content": "**📢 Neues Update!**\n🔗 Repository: `'"${{ github.repository }}"'`\n🔄 Branch: `'"${{ github.ref }}"'`\n✍️ Commit von: `'"${{ github.actor }}"'`\n📝 Nachricht: `'"${{ github.event.head_commit.message }}"'`\n🗂 Geänderte Dateien: `'"$CHANGED_FILES"'`\n🔗 [Änderungen ansehen]('"${{ github.event.head_commit.url }}"')"}' \
           $DISCORD_WEBHOOK
+
