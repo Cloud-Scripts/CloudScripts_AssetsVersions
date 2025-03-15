@@ -16,11 +16,18 @@ jobs:
       - name: Get changed files
         id: changed_files
         run: |
+          echo "Getting changed files..."
+          git fetch --prune --unshallow
           CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
           echo "Changed files: $CHANGED_FILES"
           echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
 
+      - name: Check changed files
+        run: |
+          echo "The changed files are: ${{ env.CHANGED_FILES }}"
+
       - name: Send notification to Discord
+        if: env.CHANGED_FILES != ''
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
@@ -62,4 +69,3 @@ jobs:
             ]
           }' \
           $DISCORD_WEBHOOK
-
