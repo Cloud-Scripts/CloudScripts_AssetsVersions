@@ -40,21 +40,6 @@ jobs:
                 "color": 16776960,
                 "fields": [
                   {
-                    "name": "📂 Repository",
-                    "value": "${{ github.repository }}",
-                    "inline": false
-                  },
-                  {
-                    "name": "🔄 Branch",
-                    "value": "${{ github.ref }}",
-                    "inline": false
-                  },
-                  {
-                    "name": "✍️ Commit by",
-                    "value": "${{ github.actor }}",
-                    "inline": false
-                  },
-                  {
                     "name": "📝 Commit Message",
                     "value": "${{ github.event.head_commit.message }}",
                     "inline": false
