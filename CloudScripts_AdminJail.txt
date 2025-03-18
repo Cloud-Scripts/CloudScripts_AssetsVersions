@@ -1,4 +1,4 @@
 {
-  "version": "1.0.0",
-  "news": "No problems."
+  "version": "1.0.1",
+  "news": "Some problems have been fixed please upload the sql again in the database and take the new script."
 }
