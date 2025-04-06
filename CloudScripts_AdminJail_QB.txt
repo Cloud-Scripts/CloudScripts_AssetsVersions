@@ -1,4 +1,4 @@
 {
-  "version": "1.0.0",
-  "news": "No problems."
+  "version": "1.1.0",
+  "news": "The UI has been fixed and the weapons and ammunition are removed from the player's inventory."
 }
