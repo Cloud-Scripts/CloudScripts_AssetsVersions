@@ -1,4 +1,4 @@
 {
-  "version": "2.0.0",
-  "news": "New features have been added and the admin query has been improved."
+  "version": "2.0.1",
+  "news": "Small things fixed"
 }
