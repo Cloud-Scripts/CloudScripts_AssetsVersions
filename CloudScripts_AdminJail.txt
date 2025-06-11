@@ -1,4 +1,5 @@
 {
-  "version": "1.1.0",
-  "news": "The UI has been fixed and the weapons and ammunition are removed from the player's inventory."
+  "version": "1.2.0",
+  "news": "cloudscripts_adminnotify has been added to the configuration for the query "true" or "false"."
 }
+
