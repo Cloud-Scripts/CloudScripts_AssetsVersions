@@ -1,4 +1,4 @@
 {
-  "version": "1.0.0",
-  "news": "No problems."
+  "version": "1.0.1",
+  "news": "The green zone has been fixed."
 }
