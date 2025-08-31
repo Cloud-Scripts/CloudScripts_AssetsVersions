@@ -1,4 +1,5 @@
 {
-  "version": "3.0.2",
-  "news": "No problems."
+  "version": "3.0.3",
+  "news": "For further support and information please join our new Discord. https://discord.gg/M4tfba6V3c "
 }
+
