@@ -37,7 +37,7 @@ jobs:
             "embeds": [
               {
                 "title": "📢 New Update!",
-                "color": 16776960,
+                "color": 63487,
                 "fields": [
                   {
                     "name": "📝 Commit Message",
