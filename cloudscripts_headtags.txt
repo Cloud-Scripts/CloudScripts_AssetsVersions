@@ -1,5 +1,6 @@
 {
-  "version": "1.0.1",
-  "news": "Godmode in /alogin is now available and no more handshakes in the vehicle."
+  "version": "2.0.0",
+  "news": "New features."
 
 }
+
