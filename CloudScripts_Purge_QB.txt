@@ -1,4 +1,6 @@
 {
-  "version": "2.0.1",
-  "news": "Small things fixed"
+  "version": "2.1.1",
+  "news": "Added weapon box."
+
 }
+
