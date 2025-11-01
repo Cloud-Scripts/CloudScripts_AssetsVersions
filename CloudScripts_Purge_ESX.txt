@@ -1,7 +1,7 @@
 {
-  "version": "2.1.1",
-  "news": "Added weapon box."
-
+  "version": "2.1.2",
+  "news": "Box prop moved to config.lua and a few minor fixes."
 }
+
 
 
