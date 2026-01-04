@@ -1,7 +1,8 @@
 {
-  "version": "2.0.1",
-  "news": "cloudscripts_interactionsmenu integration initially only for esx."
+  "version": "3.0.0",
+  "news": "Update 3.0.0: Please open a ticket on Discord so you can be added to the new ViceX system, and I need your CFX name so you receive the Headtags script from the correct account again."
 
 }
+
 
 
